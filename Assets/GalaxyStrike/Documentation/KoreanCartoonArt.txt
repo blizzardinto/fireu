@@ -1,0 +1,32 @@
+Galaxy Strike — 韩式卡通美术
+
+资源：Resources/GalaxyStrikeArt/CartoonEntities.png（20个实体图案），CartoonEffects.png（6个特效图案）。
+风格：俯视、圆润Q版、深蓝描边、明亮赛璐璐明暗、糖果高光；玩家银白青蓝橙色，敌方红橙紫色。
+实体图集：第1行玩家5阶；第2行侦察/炮艇/轰炸/精英/Boss；第3行等离子/贯穿激光/追踪导弹/敌方光球/敌方高速弹；第4行火力/经验/护盾/EMP/积分。
+特效图集：第1行护盾/星光/EMP环；第2行尾焰/爆炸/碎片。
+普通、双联、散射共享等离子美术，发射方式保留；Boss螺旋弹使用敌方光球。
+渲染器在Initialize时从Resources加载，独立构建可用；缺失图集时回退原程序化图案。保留现有玩法与碰撞数据。
+切分坐标由Editor/GalaxyStrikeArtSetup.cs定义，按主要连通图案去除相邻实体残片，再裁掉透明边缘，导出Sprites目录中的26张独立精灵。运行时直接加载这些精灵，不再临时切图。
+Unity导入器自动关闭Mipmaps、NPOT重缩放和有损压缩，保留透明度。
+已验证：透明Alpha存在；使用当前Unity的Roslyn及项目rsp编译运行时与编辑器程序集通过。
+已完成27个Prefab贴图绑定及引用/尺寸检查；保留原有Prefab GUID。新增Lv2-Lv5玩家及5种补给、6种特效Prefab。未验证Unity Play模式：本环境Unity批处理在执行方法之前以状态1退出。
+
+生成方式：内置image_gen工具。
+
+Entities prompt:
+Create ONE production sprite atlas for a Korean cute cartoon arcade space shooter. Square transparent RGBA canvas, EXACTLY 5 columns x 4 rows equal cells, 20 centered isolated sprites, each fully inside its cell with 12% margin. Orthographic top down, no perspective. Style: polished Korean mobile game cartoon art, chibi chunky rounded aircraft, thick clean dark navy outlines, soft cel shading, glossy candy highlights, bright playful colors, simple readable shapes. NOT realistic, not gritty, no tiny realistic panel texture. Row 1: five UPWARD pointing player evolution ships, white sky-blue coral accents: small cute arrow fighter, twin-engine rounded fighter, broad three-engine heavy fighter, four-engine star-wing battleship, magnificent six-wing golden cyan flagship. Each distinct progressively more elaborate silhouette. Row 2: five DOWNWARD pointing enemy ships: little red beetle scout, orange twin-gun gunship, chunky yellow bomber, violet crescent elite with glowing eyes-like cockpit, wide purple pink boss mothership with central angry face reactor and large symmetrical cannon pods. Row 3: upward cyan plasma droplet bolt; upward long cyan white laser; upward cute silver coral missile; orange red enemy round energy orb; upward violet pink energy bolt. Row 4: five rounded hexagonal supply capsules with clear pictograms: orange triple bullets, blue double upward chevrons, mint green shield, violet EMP radiation, golden diamond coin. Transparent background, NO labels NO letters NO grid NO checkerboard NO scenery NO shadows behind objects. Every cell has exactly one sprite and lots of clean separation. High quality cohesive commercial cartoon game asset.
+
+Effects prompt:
+Single 3 column by 2 row transparent sprite atlas, exact equal square cells, no text or grid. Korean cute cartoon mobile space shooter VFX, bold clean outlines, cel shaded glossy candy color, rounded shapes, top down flat orthographic. Row1: cyan round protective shield bubble with a thin hexagonal pattern and almost transparent interior; white yellow four pointed sparkle; mint cyan circular EMP shockwave ring with empty transparent center. Row2: blue cyan tapered engine flame pointing DOWN; round orange yellow cartoon explosion puff with dark orange outline; small golden angular metal debris shard. Each effect centered in cell with 15% padding and completely isolated with truly transparent background, no checkerboard, no shadows no scenery.
+
+尺寸适配规则（2026-10-17）
+每格=0.2 Unity单位；场景及GameMaster的三个尺寸倍率统一为1。
+GalaxyStrikeVisualSize.Fit按Sprite.bounds等比缩放，完整图案包含在逻辑尺寸框内，不拉伸、不重复乘Prefab原始缩放。
+玩家尺寸框依次：0.6x0.4、1.0x0.4、1.4x0.6、1.8x0.6、2.2x0.8。
+敌人尺寸框：侦察0.6x0.4、炮艇1.0x0.4、轰炸1.4x0.6、精英1.8x0.6、Boss4.6x1.0。
+补给尺寸框0.6x0.2。由于原逻辑来自横向ASCII字符，部分宽框内有留白；美术保持原比例，未改动碰撞数据。
+弹药：普通/高速0.16x0.3、激光0.2x0.6、导弹0.2x0.35、光球0.2x0.2；这些是视觉拖尾范围，碰撞保持1x1格。
+护盾和尾焰相对当前机体精灵尺寸定位和缩放。所有子弹显示中心对齐逻辑碰撞框中心。
+Prefab与运行时共用同一Fit方法；星光和爆炸同样按世界尺寸归一化。
+Unity中可通过Galaxy Strike > Apply Cartoon Art & Fit Prefabs重新生成和绑定。
+验证：运行时和编辑器程序集Roslyn编译通过；27个Prefab引用检查、等比缩放检查、玩家子对象检查通过。Temp/CartoonPrefabValidation.txt记录尺寸。

@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 100002}
+  - component: {fileID: 100003}
+  - component: {fileID: 100004}
+  - component: {fileID: 100005}
+  m_Layer: 0
+  m_Name: GalaxyStrike_GameMaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &100002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100001}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &100003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0fc13d309a3a547bed60c2f13cd265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_playerShipPrefab: {fileID: 100001, guid: f1a00001000000000000000000000001, type: 3}
+  m_enemyScoutPrefab: {fileID: 100001, guid: f1a00002000000000000000000000002, type: 3}
+  m_enemyGunshipPrefab: {fileID: 100001, guid: f1a00003000000000000000000000003, type: 3}
+  m_enemyBomberPrefab: {fileID: 100001, guid: f1a00004000000000000000000000004, type: 3}
+  m_enemyElitePrefab: {fileID: 100001, guid: f1a00005000000000000000000000005, type: 3}
+  m_enemyBossPrefab: {fileID: 100001, guid: f1a00006000000000000000000000006, type: 3}
+  m_bulletPlayerPlasmaPrefab: {fileID: 100001, guid: f1a00007000000000000000000000007, type: 3}
+  m_bulletPlayerLaserPrefab: {fileID: 100001, guid: f1a00008000000000000000000000008, type: 3}
+  m_bulletPlayerMissilePrefab: {fileID: 100001, guid: f1a00009000000000000000000000009, type: 3}
+  m_bulletEnemyOrbPrefab: {fileID: 100001, guid: f1a00010000000000000000000000010, type: 3}
+  m_bulletEnemyLaserPrefab: {fileID: 100001, guid: f1a00011000000000000000000000011, type: 3}
+  m_powerUpItemPrefab: {fileID: 100001, guid: f1a00012000000000000000000000012, type: 3}
+  shipScaleMultiplier: 1
+  bulletScaleMultiplier: 1
+  powerUpScaleMultiplier: 1
+--- !u!114 &100004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7704df21190e7346ad6f3f981d09e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &100005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1210c3236d83b44c95d744a8d40226f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
